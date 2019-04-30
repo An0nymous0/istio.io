@@ -22,7 +22,7 @@ keywords: [telemetry,visualization]
 在 Istio 命名空间中创建一个 Secret，作为 Kiali 的认证凭据。[Helm README]({{< github_blob >}}/install/kubernetes/helm/istio/README.md#installing-the-chart) 中介绍了更多细节。修改并运行下列命令：
 
 {{< text bash >}}
-$ USERNAME=$(echo -n 'admin' | base64)
+$ UNAME=$(echo -n 'admin' | base64)
 $ PASSPHRASE=$(echo -n 'mysecret' | base64)
 $ NAMESPACE=istio-system
 $ kubectl create namespace $NAMESPACE
@@ -36,7 +36,7 @@ metadata:
     app: kiali
 type: Opaque
 data:
-  username: $USERNAME
+  username: $UNAME
   passphrase: $PASSPHRASE
 EOF
 {{< /text >}}
